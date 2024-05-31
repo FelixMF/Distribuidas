@@ -1,0 +1,44 @@
+Instalamos apache:
+
+yum install httpd -y
+systemctl start httpd
+systemctl enable httpd
+systemctl status httpd
+
+firewall-cmd --zone=public --add-service=http --permanent
+firewall-cmd --zone=public --add-service=httpd --permanent
+
+firewall-cmd --reload
+
+yum install epel-release -y
+
+yum install munin munin-node -y
+
+cd /etc/munin/
+
+yum install nano vim -y
+
+nano munin-node.config
+
+Al final agregamos esto:
+
+log_level 4
+log_file /var/log/munin-node/munin-node.log
+pid_file /var/run/munin/munin-node.pid
+dbdir /var/lib/munin
+htmldir /var/www/html/munin
+logdir /var/log/munin
+rundir /var/munin
+
+yum install perl -y
+
+dnf config-manager -enable crb
+
+systemctl start munin
+systemctl enable munin
+systemctl status munin
+
+systemctl enable munin-node
+systemctl status munin-node
+
+para entrar [tu ip]/munin/
